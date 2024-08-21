@@ -2,7 +2,7 @@ import numpy as np
 # Linear Regression
 
 
-F_y = w[1]*x[1]+w[2]*x[3]+b
+# F_y = w[1]*x[1]+w[2]*x[3]+b
 
 
 # Cost Function
@@ -18,17 +18,15 @@ def cost_function(x,y,w,b):
         pre_y_i = w*x[i]+b
 
         # for multiple feature
-        pre_y_i = np.dot(w*x[i])+b
+        pre_y_i = np.dot(x[i],w)+b
 
-        cost = (pre_y_i-y[i])**2
+        cost += (pre_y_i-y[i])**2
 
-        cost = cost + cost
-
-    total_cost = cost/2*m
+    total_cost = cost/(2*m)
     return total_cost
 
 # Regularized
-def reg_cost_function(x,y,w,b,Lam_var):
+def reg_cost_function(x,y,w,b,Lambda_):
     cost=0
     m=x.shape[0]
     n=len(b)
@@ -39,27 +37,13 @@ def reg_cost_function(x,y,w,b,Lam_var):
         pre_y_i = w*x[i]+b
 
         # for multiple feature
-        pre_y_i = np.dot(w*x[i])+b
+        pre_y_i = np.dot(x[i],w)+b
 
-        cost = (pre_y_i-y[i])**2
+        cost += (pre_y_i-y[i])**2
 
-        cost = cost + cost
-
-    cost = cost/2*m
-
-    reg_cost=0
-    for i in range(n):
-       reg_cost = (Lam_var/m)*(w[n])**2
-       reg_cost += reg_cost
-    reg_cost = reg_cost/2*m
+    cost = cost/(2*m)
+    
+    reg_cost = (Lambda_/(2*m))*np.sum(np.square(w))
 
     total_cost = cost + reg_cost
-
     return total_cost
-
-# Gradient Function
-
-
-
-
-
