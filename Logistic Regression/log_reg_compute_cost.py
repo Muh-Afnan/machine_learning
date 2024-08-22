@@ -50,7 +50,7 @@ def reg_cost_function(x,y,w,b,Lam_var):
         cost = -y[i]*np.log(g_i)-(1-y[i]*np.log(1-y[i]))
 
         cost = cost + cost
-        
+         
     cost=cost/m
 
     reg_cost=0
