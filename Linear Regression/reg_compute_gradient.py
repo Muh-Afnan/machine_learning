@@ -31,7 +31,7 @@ def gradient(X, y, w, b, lambda_):
         
         # Update gradients for weights
         for j in range(n):  # Loop over each feature
-            dj_dw[j] += err * X[i, j]
+            dj_dw[j] += err * X[i, j] #is step ma jis feature ki gradient value hoti usi ka feature ka sath multiply karty
         
         # Update gradient for bias
         dj_db += err
@@ -41,7 +41,7 @@ def gradient(X, y, w, b, lambda_):
     dj_db /= m  # Gradient with respect to bias averaged over m examples
     
     # Add regularization term to the gradient of weights
-    for j in range(n):
-        dj_dw[j] += (lambda_ / m) * w[j]
+  
+    dj_dw+= (lambda_ / m) * np.sum(np.square(w))
 
     return dj_dw, dj_db
