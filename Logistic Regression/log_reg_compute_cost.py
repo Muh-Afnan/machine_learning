@@ -32,7 +32,7 @@ def log_cost_function(x,y,w,b):
     return total_cost
 
 # Regularized
-def reg_cost_function(x,y,w,b,Lam_var):
+def reg_log_cost_function(x,y,w,b,Lam_var):
     cost=0
     m=x.shape[0]
     n=len(b)
@@ -55,8 +55,7 @@ def reg_cost_function(x,y,w,b,Lam_var):
 
     reg_cost=0
     for i in range(n):
-       reg_cost = (Lam_var/m)*(w[n])**2
-       reg_cost += reg_cost
+       reg_cost += (Lam_var)*(w[n])**2
     reg_cost = reg_cost/2*m
 
     total_cost = cost + reg_cost
