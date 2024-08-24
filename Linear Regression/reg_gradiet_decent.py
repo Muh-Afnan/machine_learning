@@ -1,6 +1,6 @@
 import numpy as np
-from compute_gradient import gradient
-from compute_cost import reg_cost_function
+from reg_compute_gradient import gradient
+from reg_compute_cost import reg_cost_function
 import math
 
 def gradient_descent(x, y, w_in, b_in, alpha, num_iters, lambda_,reg_cost_function, gradient): 
