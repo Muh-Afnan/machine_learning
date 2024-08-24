@@ -13,5 +13,5 @@ def log_gradient_decent(x,y,w_in,b_in, lambda_, num_iters, alpha, gradient, reg_
         
         if i<10000:
             J_history.append(reg_log_cost_function(x,y,w_in,b_in,lambda_))
-            p_history.append([b,w])
+            p_history.append([b_in,w_in])
 
