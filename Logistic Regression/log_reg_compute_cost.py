@@ -2,9 +2,9 @@ import numpy as np
 # Linear Regression
 
 
-z = w[1]*x[1]+w[2]*x[3]+b
+# z = w[1]*x[1]+w[2]*x[3]+b
 
-g = 1/(1+e**(-z))
+# g = 1/(1+e**(-z))
 
 # Cost Function
 
